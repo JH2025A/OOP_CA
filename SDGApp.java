@@ -12,6 +12,11 @@ import javax.swing.JOptionPane;//importing JOptionPane for basic inputs and outp
 public class SDGApp {
 
     public static void main(String[] args) {
+        //creating gui objects
+        HomeScreenGUI hsGui=new HomeScreenGUI();
+        AccountsGUI accGui= new AccountsGUI();
+        hsGui.setVisible(true);
+        accGui.setVisible(true);
         //creating variables
         String uName, password;
         String Account[][];
