@@ -21,12 +21,12 @@ public class SDGApp {
         uName=JOptionPane.showInputDialog(null,"Please Enter your username");
         password=JOptionPane.showInputDialog(null,"Please Enter your password");
         //creating the account object
-        Accounts A= new Accounts(uName, password);
         //letting user select which option to choose
         
         function=Integer.parseInt(JOptionPane.showInputDialog(null,"What function would you like to use?\n1:section 1\n2: section 2\n3:Account"));
         switch(function){
             case 1:
+        Accounts A= new Accounts(uName, password);
                 JOptionPane.showMessageDialog(null,"You selected section 1");
                 break;
             case 2:
