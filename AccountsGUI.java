@@ -8,6 +8,7 @@ package com.mycompany.oop_ca;
  *
  * @author jessi
  */
+import java.util.*;
 public class AccountsGUI extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AccountsGUI.class.getName());
@@ -15,8 +16,10 @@ public class AccountsGUI extends javax.swing.JFrame {
     /**
      * Creates new form AccountsGUI
      */
+    private ArrayList<Accounts> accList;
     public AccountsGUI() {
         initComponents();
+        accList= new ArrayList<>(); //code taken from EmployeeGUI, from Employee Application with GUI on moodle 
     }
 
     /**
@@ -28,21 +31,140 @@ public class AccountsGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        pageTitleAccLbl = new javax.swing.JLabel();
+        logInAccBtn = new javax.swing.JButton();
+        createAccountAccBtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        nameAccSP = new javax.swing.JScrollPane();
+        nameAccTP = new javax.swing.JTextPane();
+        descriptionAccSP = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        descriptionAccLbl = new javax.swing.JLabel();
+        editAccBtn = new javax.swing.JToggleButton();
+        homeBtn = new javax.swing.JButton();
+
+        jLabel1.setText("jLabel1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        pageTitleAccLbl.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        pageTitleAccLbl.setText("Accounts");
+
+        logInAccBtn.setText("Log In");
+        logInAccBtn.addActionListener(this::logInAccBtnActionPerformed);
+
+        createAccountAccBtn.setText("Create Account");
+        createAccountAccBtn.addActionListener(this::createAccountAccBtnActionPerformed);
+
+        jLabel2.setText("Name:");
+
+        nameAccSP.setViewportView(nameAccTP);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        descriptionAccSP.setViewportView(jTextArea1);
+
+        descriptionAccLbl.setText("Description:");
+
+        editAccBtn.setText("Edit Profile");
+        editAccBtn.addActionListener(this::editAccBtnActionPerformed);
+
+        homeBtn.setText("Home");
+        homeBtn.addActionListener(this::homeBtnActionPerformed);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pageTitleAccLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                        .addComponent(createAccountAccBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(descriptionAccSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nameAccSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(descriptionAccLbl)
+                            .addComponent(editAccBtn))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(logInAccBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(homeBtn)
+                .addGap(48, 48, 48))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pageTitleAccLbl)
+                    .addComponent(createAccountAccBtn)
+                    .addComponent(logInAccBtn))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nameAccSP)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(descriptionAccLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(descriptionAccSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(editAccBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(homeBtn)
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void logInAccBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInAccBtnActionPerformed
+        LogInGUI liGUI=new LogInGUI();
+        liGUI.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logInAccBtnActionPerformed
+
+    private void createAccountAccBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountAccBtnActionPerformed
+        LogInGUI liGUI=new LogInGUI();
+        liGUI.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_createAccountAccBtnActionPerformed
+
+    private void editAccBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAccBtnActionPerformed
+        editAccBtn.setText("save changes");
+         
+    }//GEN-LAST:event_editAccBtnActionPerformed
+
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        // TODO add your handling code here:
+        HomeScreenGUI hsGUI=new HomeScreenGUI();
+        hsGUI.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_homeBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -68,7 +190,21 @@ public class AccountsGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new AccountsGUI().setVisible(true));
     }
-
+    //my variables
+    private int edit=0;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton createAccountAccBtn;
+    private javax.swing.JLabel descriptionAccLbl;
+    private javax.swing.JScrollPane descriptionAccSP;
+    private javax.swing.JToggleButton editAccBtn;
+    private javax.swing.JButton homeBtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton logInAccBtn;
+    private javax.swing.JScrollPane nameAccSP;
+    private javax.swing.JTextPane nameAccTP;
+    private javax.swing.JLabel pageTitleAccLbl;
     // End of variables declaration//GEN-END:variables
 }

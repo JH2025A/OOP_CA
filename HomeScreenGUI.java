@@ -41,10 +41,13 @@ public class HomeScreenGUI extends javax.swing.JFrame {
         jLabel1.setText("Welcome!");
 
         jButton1.setText("Account");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButton2.setText("Events");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
 
         jButton3.setText("Quiz");
+        jButton3.addActionListener(this::jButton3ActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,6 +96,24 @@ public class HomeScreenGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private  AccountsGUI accGui= new AccountsGUI();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        accGui.setVisible(true);
+        this.dispose(); //Advised to use .dispose by Theo Stowe
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+    private EventsGUI eventsGui = new EventsGUI();
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        eventsGui.setVisible(true);
+        //this.dispose(); 
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //quizGui.setVisible(true);
+        //this.dispose(); 
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

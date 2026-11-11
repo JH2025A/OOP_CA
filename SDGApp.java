@@ -16,22 +16,21 @@ public class SDGApp {
         HomeScreenGUI hsGui=new HomeScreenGUI();
         AccountsGUI accGui= new AccountsGUI();
         hsGui.setVisible(true);
-        accGui.setVisible(true);
+       // accGui.setVisible(false);
         //creating variables
         String uName, password;
         String Account[][];
         int function=0;
         boolean logIn, logOut;
         //getting uName and password
-        uName=JOptionPane.showInputDialog(null,"Please Enter your username");
-        password=JOptionPane.showInputDialog(null,"Please Enter your password");
+        
         //creating the account object
         //letting user select which option to choose
         
-        function=Integer.parseInt(JOptionPane.showInputDialog(null,"What function would you like to use?\n1:section 1\n2: section 2\n3:Account"));
+        /*function=Integer.parseInt(JOptionPane.showInputDialog(null,"What function would you like to use?\n1:section 1\n2: section 2\n3:Account"));
         switch(function){
             case 1:
-        Accounts A= new Accounts(uName, password);
+                Accounts A= new Accounts(uName, password);
                 JOptionPane.showMessageDialog(null,"You selected section 1");
                 break;
             case 2:
@@ -44,7 +43,7 @@ public class SDGApp {
             default:
                 JOptionPane.showMessageDialog(null, "Invalid entry, option are 1, 2 or 3. Please try again");
                       
-        }
+        }*/
        
     }
 }
